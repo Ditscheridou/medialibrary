@@ -10,10 +10,11 @@ public class Window extends JFrame {
 	private Window () {
 		super("Media Library");
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		setSize(800, 600);
+		setExtendedState(JFrame.MAXIMIZED_BOTH);
+		getContentPane().setLayout(new GridBagLayout());
 		setLocationRelativeTo(null);
 		setVisible(true);
-		setLayout(new BorderLayout());
+
 	}
 	public static synchronized Window getInstance() {
 		if (instance == null) {
@@ -28,7 +29,7 @@ public class Window extends JFrame {
 
 	public void replaceView(AbstractView view) {
 		getContentPane().removeAll();
-		getContentPane().add(view, BorderLayout.CENTER);
+		getContentPane().add(view, new GridBagConstraints());
 		revalidate();
 		repaint();
 	}

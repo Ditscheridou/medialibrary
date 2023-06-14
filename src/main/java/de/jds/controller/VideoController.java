@@ -5,6 +5,8 @@ import de.jds.model.services.MediaService;
 import de.jds.model.services.VideoService;
 import de.jds.view.VideoView;
 
+import javax.swing.*;
+
 public class VideoController extends AbstractController<VideoView> {
 
 	private final MediaService<Video> videoService;
@@ -15,7 +17,7 @@ public class VideoController extends AbstractController<VideoView> {
 
 	@Override
 	public void afterinit() {
-		videoService.getAll().forEach(future -> future.thenAccept(video -> getView().addVideo(video)));
+		videoService.getAll().forEach(future -> future.thenAcceptAsync(video ->getView().addVideo(video),SwingUtilities::invokeLater));
 	}
 
 	@Override
