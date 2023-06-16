@@ -14,6 +14,8 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     implementation("com.github.holgerbrandl:themoviedbapi:1.15")
     implementation("com.formdev:flatlaf:3.1.1")
+    implementation("net.java.dev.jna:jna-platform:5.13.0")
+    implementation("uk.co.caprica:vlcj:4.8.2")
 }
 
 tasks.test {

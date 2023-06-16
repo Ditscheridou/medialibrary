@@ -29,7 +29,12 @@ public class Window extends JFrame {
 
 	public void replaceView(AbstractView view) {
 		getContentPane().removeAll();
-		getContentPane().add(view, new GridBagConstraints());
+		GridBagConstraints gridBagConstraints = new GridBagConstraints();
+		gridBagConstraints.fill = GridBagConstraints.BOTH;
+		gridBagConstraints.weightx = 1.0;
+		gridBagConstraints.weighty = 1.0;
+		gridBagConstraints.anchor = GridBagConstraints.FIRST_LINE_START;
+		getContentPane().add(view, gridBagConstraints);
 		revalidate();
 		repaint();
 	}
